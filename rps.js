@@ -31,11 +31,23 @@ function getRandomInt(max) {
 }
 
 function getHumanChoice() {
-    // INIT humanChoice variable with a CALL to prompt() with a message asking the user what hand they would play
+    // INIT humanChoice variable with a CALL to prompt() with 
+    // a message asking the user what hand they would play
     let humanChoice = prompt("What hand would u play?");
 
     // Return the humanChoice as is
     return humanChoice;
+}
+
+// Takes human choice and computer choice, case insensitive
+function playRound (humanChoice, computerChoice) {
+    // INIT variable humanChoiceLC to store human choice with CALL to 
+    // toLowerCase() to sanitize the input
+    let humanChoiceLC = humanChoice.toLowerCase();
+
+    // DISPLAY in console that the player lose
+    console.log("You lose! Paper beats Rock");
+    computerScore++;
 }
 
 console.log("getComputerChoice() result: ");
