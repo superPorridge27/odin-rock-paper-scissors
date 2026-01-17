@@ -149,15 +149,4 @@ function playGame() {
     }
 }
 
-// console.log("getComputerChoice() result: ");
-// console.log(getComputerChoice());
-
-// console.log("getHumanChoice() result: ");
-// console.log(getHumanChoice());
-
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
-
-// playRound(humanSelection, computerSelection);
-
 playGame();
