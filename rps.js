@@ -24,5 +24,11 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function getHumanChoice() {
+    // INIT humanChoice variable with a CALL to prompt() with a message asking the user what hand they would play
+
+    // Return the humanChoice as is
+}
+
 console.log("getComputerChoice() result: ");
 console.log(getComputerChoice());
