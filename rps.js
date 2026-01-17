@@ -50,11 +50,11 @@ function playRound (humanChoice, computerChoice) {
     computerScore++;
 }
 
-console.log("getComputerChoice() result: ");
-console.log(getComputerChoice());
+// console.log("getComputerChoice() result: ");
+// console.log(getComputerChoice());
 
-console.log("getHumanChoice() result: ");
-console.log(getHumanChoice());
+// console.log("getHumanChoice() result: ");
+// console.log(getHumanChoice());
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
