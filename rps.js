@@ -34,31 +34,31 @@ function playRound(humanChoice, computerChoice) {
     switch(true) {
         case humanChoiceLC === computerChoice:
             console.log(humanChoiceLC + " vs " + computerChoice + " Ties! the player Draws!")
-            return "draw";
+            scoring("draw");
         
         case humanChoiceLC === "rock" && computerChoice === "paper":
             console.log("Paper beats Rock! The player Loses!");
-            return "computer";
+            scoring("computer");
 
         case humanChoiceLC === "rock" && computerChoice === "scissors":
             console.log("Rock beats Scissors! The player Wins!");
-            return "human"
+            scoring("human");
 
         case humanChoiceLC === "paper" && computerChoice === "rock":
             console.log("Paper beats Rock! The Player Wins!");
-            return "human";
+            scoring("human");
 
         case humanChoiceLC === "paper" && computerChoice === "scissors":
             console.log("Scissors beats Paper! The Player Loses!");
-            return "computer";
+            scoring("computer");
 
         case humanChoiceLC === "scissors" && computerChoice === "rock":
             console.log("Rock beats Scissors! The player Loses!");
-            return "computer";
+            scoring("computer");
 
         case humanChoiceLC === "scissors" && computerChoice === "paper":
             console.log("Scissors beats paper! The player Wins!");
-            return "human";
+            scoring("human");
     }
 }
 
@@ -70,20 +70,23 @@ function scoreReset() {
 }
 
 // Adds the score according to the winner
-function scoreAdd(winner) {
-    console.log("scoreAdd entered" +winner);
+function scoring(winner) {
     switch(winner) {
-        case winner === "human" :
+        case "human" :
             console.log("Adding score to human");
             humanScore++;
+            console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
             break;
 
-        case winner === "draw":
+        case "draw":
             console.log("It's a draw, not adding any score");
+            console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
             break;
 
-        case winner === "computer":
+        case "computer":
             console.log("Adding score to computer");
+            computerScore++;
+            console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
             break;
     }
 }
@@ -95,27 +98,15 @@ function playGame() {
     const scissorsBtn = document.getElementById("scissorsBtn");
 
     rockBtn.addEventListener("click", function (e) {
-        scoreAdd(playRound("rock", getComputerChoice()));
+        playRound("rock", getComputerChoice());
     })
     paperBtn.addEventListener("click", function (e) {
-        scoreAdd(playRound("paper", getComputerChoice()));
+        playRound("paper", getComputerChoice());
     })
     scissorsBtn.addEventListener("click", function (e) {
-        scoreAdd(playRound("scissors", getComputerChoice()));
+        playRound("scissors", getComputerChoice());
     })
 
-    if(humanScore > computerScore) {
-        console.log("HUMAN WINS!");
-        scoreReset();
-    }
-    else if(humanScore < computerScore) {
-        console.log("COMPUTER WINS!");
-        scoreReset();
-    }
-    else {
-        console.log("HUMAN VS COMPUTER DRAWS!");
-        scoreReset();
-    }
 }
 
 playGame();
