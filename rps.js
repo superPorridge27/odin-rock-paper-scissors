@@ -114,13 +114,21 @@ function scoreReset() {
 
 // Play game for 5 rounds and declares the winner
 function playGame() {
-    // IF humanScore > computerScore
-    // THEN DISPLAY HUMAN WINS! & CALL scoreReset
-    // ELSE IF humanScore < computerScore
-    // THEN DISPLAY COMPUTER WINS! & CALL scoreReset
-    // ELSE
-    // THEN DISPLAY HUMAN VS COMPUTER DRAWS! & CALL scoreReset
-    // ENDIF
+    
+    const rockBtn = document.getElementById("rockBtn");
+    const paperBtn = document.getElementById("paperBtn");
+    const scissorsBtn = document.getElementById("scissorsBtn");
+
+    rockBtn.addEventListener("click", function (e) {
+        console.log("Rock is clicked!");
+    })
+    paperBtn.addEventListener("click", function (e) {
+        console.log("Paper is clicked!");
+    })
+    scissorsBtn.addEventListener("click", function (e) {
+        console.log("Scissors is clicked!");
+    })
+
     if(humanScore > computerScore) {
         console.log("HUMAN WINS!");
         scoreReset();
