@@ -23,47 +23,42 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-// Takes human choice and computer choice, case insensitive
+// Takes human choice and computer choice, case insensitive.
+// Returns winner of the game
 function playRound(humanChoice, computerChoice) {
     let humanChoiceLC = humanChoice.toLowerCase();
 
     console.log("Human Choice LC: " + humanChoiceLC);
     console.log("computer Choice: " + computerChoice);
 
-    // CASE true OF
     switch(true) {
         case humanChoiceLC === computerChoice:
             console.log(humanChoiceLC + " vs " + computerChoice + " Ties! the player Draws!")
-            break;
-                case humanChoiceLC === "rock" && computerChoice === "paper":
+            return "draw";
+        
+        case humanChoiceLC === "rock" && computerChoice === "paper":
             console.log("Paper beats Rock! The player Loses!");
-            computerScore++;
-            break;
+            return "computer";
 
         case humanChoiceLC === "rock" && computerChoice === "scissors":
             console.log("Rock beats Scissors! The player Wins!");
-            humanScore++;
-            break;
+            return "human"
 
         case humanChoiceLC === "paper" && computerChoice === "rock":
             console.log("Paper beats Rock! The Player Wins!");
-            humanScore++;
-            break;
+            return "human";
 
         case humanChoiceLC === "paper" && computerChoice === "scissors":
             console.log("Scissors beats Paper! The Player Loses!");
-            computerScore++;
-            break;
+            return "computer";
 
         case humanChoiceLC === "scissors" && computerChoice === "rock":
             console.log("Rock beats Scissors! The player Loses!");
-            computerScore++;
-            break;
+            return "computer";
 
         case humanChoiceLC === "scissors" && computerChoice === "paper":
             console.log("Scissors beats paper! The player Wins!");
-            humanScore++
-            break;
+            return "human";
     }
 }
 
@@ -74,7 +69,25 @@ function scoreReset() {
     console.log("The score has been reset!");
 }
 
-// Play game for 5 rounds and declares the winner
+// Adds the score according to the winner
+function scoreAdd(winner) {
+    console.log("scoreAdd entered" +winner);
+    switch(winner) {
+        case winner === "human" :
+            console.log("Adding score to human");
+            humanScore++;
+            break;
+
+        case winner === "draw":
+            console.log("It's a draw, not adding any score");
+            break;
+
+        case winner === "computer":
+            console.log("Adding score to computer");
+            break;
+    }
+}
+
 function playGame() {
     
     const rockBtn = document.getElementById("rockBtn");
@@ -82,13 +95,13 @@ function playGame() {
     const scissorsBtn = document.getElementById("scissorsBtn");
 
     rockBtn.addEventListener("click", function (e) {
-        console.log("Rock is clicked!");
+        scoreAdd(playRound("rock", getComputerChoice()));
     })
     paperBtn.addEventListener("click", function (e) {
-        console.log("Paper is clicked!");
+        scoreAdd(playRound("paper", getComputerChoice()));
     })
     scissorsBtn.addEventListener("click", function (e) {
-        console.log("Scissors is clicked!");
+        scoreAdd(playRound("scissors", getComputerChoice()));
     })
 
     if(humanScore > computerScore) {
