@@ -114,18 +114,6 @@ function scoreReset() {
 
 // Play game for 5 rounds and declares the winner
 function playGame() {
-    // FOR 5 times
-    // INIT humanSelection variable to store getHumanChoice()
-    // INIT computerSelection variable to store getComputerChoice()
-    // CALL playRound(humanSelection, computerSelection) to start the game
-    // ENDFOR
-    for(let i=0; i<5 ; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-    }
-    
     // IF humanScore > computerScore
     // THEN DISPLAY HUMAN WINS! & CALL scoreReset
     // ELSE IF humanScore < computerScore
