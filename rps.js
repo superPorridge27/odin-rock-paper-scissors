@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 // INIT humanScore = 0 to keep track of human player's score
 let humanScore = 0;
 
