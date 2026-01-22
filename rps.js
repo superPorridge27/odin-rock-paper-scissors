@@ -35,30 +35,37 @@ function playRound(humanChoice, computerChoice) {
         case humanChoiceLC === computerChoice:
             console.log(humanChoiceLC + " vs " + computerChoice + " Ties! the player Draws!")
             scoring("draw");
+            break;
         
         case humanChoiceLC === "rock" && computerChoice === "paper":
             console.log("Paper beats Rock! The player Loses!");
             scoring("computer");
+            break;
 
         case humanChoiceLC === "rock" && computerChoice === "scissors":
             console.log("Rock beats Scissors! The player Wins!");
             scoring("human");
+            break;
 
         case humanChoiceLC === "paper" && computerChoice === "rock":
             console.log("Paper beats Rock! The Player Wins!");
             scoring("human");
+            break;
 
         case humanChoiceLC === "paper" && computerChoice === "scissors":
             console.log("Scissors beats Paper! The Player Loses!");
             scoring("computer");
+            break;
 
         case humanChoiceLC === "scissors" && computerChoice === "rock":
             console.log("Rock beats Scissors! The player Loses!");
             scoring("computer");
+            break;
 
         case humanChoiceLC === "scissors" && computerChoice === "paper":
             console.log("Scissors beats paper! The player Wins!");
             scoring("human");
+            break;
     }
 }
 
