@@ -1,18 +1,8 @@
-// INIT humanScore = 0 to keep track of human player's score
 let humanScore = 0;
-
-// INIT computerScore = 0 to keep track of computer player's score
 let computerScore = 0;
 
 function getComputerChoice() {
-    // INIT randomVariable with a CALL to getRandomInt(3) to get either 0, 1, 2 randomly
     const randomVariable = getRandomInt(3);
-    // IF randomVariable == 0
-    // THEN return "rock"
-    // ELSE IF randomVariable == 1
-    // THEN return "paper"
-    // ELSE
-    // THEN return "scissors"
     if(randomVariable == 0) {
         return "rock";
     } else if (randomVariable == 1) {
@@ -28,18 +18,13 @@ function getRandomInt(max) {
 }
 
 function getHumanChoice() {
-    // INIT humanChoice variable with a CALL to prompt() with 
-    // a message asking the user what hand they would play
     let humanChoice = prompt("What hand would u play?");
 
-    // Return the humanChoice as is
     return humanChoice;
 }
 
 // Takes human choice and computer choice, case insensitive
 function playRound(humanChoice, computerChoice) {
-    // INIT variable humanChoiceLC to store human choice with CALL to 
-    // toLowerCase() to sanitize the input
     let humanChoiceLC = humanChoice.toLowerCase();
 
     console.log("Human Choice LC: " + humanChoiceLC);
@@ -47,61 +32,38 @@ function playRound(humanChoice, computerChoice) {
 
     // CASE true OF
     switch(true) {
-        // humanChoiceLC == computerChoice: 
-        //  DISPLAY in console that humanChoiceLC vs computerChoice Ties!
-        //  the player Draws!    
         case humanChoiceLC === computerChoice:
             console.log(humanChoiceLC + " vs " + computerChoice + " Ties! the player Draws!")
             break;
-        
-        // humanChoiceLC == rock && computerChoice == paper: 
-        //  DISPLAY in console that Paper beats Rock! The player Loses!
-        //  ADD computerScore by 1 number
-        case humanChoiceLC === "rock" && computerChoice === "paper":
+                case humanChoiceLC === "rock" && computerChoice === "paper":
             console.log("Paper beats Rock! The player Loses!");
             computerScore++;
             break;
 
-        // humanChoiceLC == rock && computerChoice == scissors:
-        //  DISPLAY in console that Rock beats Scissors! The player Wins!
-        //  ADD humanScore by 1 number
         case humanChoiceLC === "rock" && computerChoice === "scissors":
             console.log("Rock beats Scissors! The player Wins!");
             humanScore++;
             break;
 
-        //  humanChoiceLC == paper && computerChoice == rock:
-        //  DISPLAY in console that Paper beats Rock! The player Wins!
-        //  ADD humanScore by 1 number
         case humanChoiceLC === "paper" && computerChoice === "rock":
             console.log("Paper beats Rock! The Player Wins!");
             humanScore++;
             break;
 
-        //  humanChoiceLC == paper && computerChoice == scissors:
-        //  DISPLAY in console that Scissors beats Paper! The player Loses!
-        //  ADD computerScore by 1 number
         case humanChoiceLC === "paper" && computerChoice === "scissors":
             console.log("Scissors beats Paper! The Player Loses!");
             computerScore++;
             break;
 
-        //  humanChoiceLC == scissors && computerChoice == rock:
-        //  DISPLAY in console that Rock beats scissors! The player Loses!
-        //  ADD computerScore by 1 number
         case humanChoiceLC === "scissors" && computerChoice === "rock":
             console.log("Rock beats Scissors! The player Loses!");
             computerScore++;
             break;
 
-        //  humanChoiceLC == scissors && computerChoice == paper:
-        //  DISPLAY in console that Scissors beats Paper! The player Wins!
-        //  ADD humanScore by 1 number
         case humanChoiceLC === "scissors" && computerChoice === "paper":
             console.log("Scissors beats paper! The player Wins!");
             humanScore++
             break;
-        //  ENDCASE
     }
 }
 
