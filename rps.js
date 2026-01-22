@@ -83,6 +83,7 @@ function scoring(winner) {
             console.log("Adding score to human");
             humanScore++;
             console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
+            scoreUpdate();
             break;
 
         case "draw":
@@ -96,6 +97,34 @@ function scoring(winner) {
             console.log("Player Score: " + humanScore + " Computer Score: " + computerScore);
             break;
     }
+}
+
+function scoreUpdate() {
+    const playerScore = document.getElementById("player-score");
+    const cpuScore = document.getElementById("computer-score");
+    const resultContainer = document.getElementById("result-container");
+    const gameResult = document.createElement("h1");
+
+
+    playerScore.textContent = "Player: " + humanScore;
+    cpuScore.textContent = "Computer: " + computerScore;
+
+    if(humanScore > 4) {
+        gameResult.textContent = "Player Wins!";
+        resultContainer.appendChild(gameResult);
+        scoreReset();
+        playerScore.textContent = "Player: " + humanScore;
+        cpuScore.textContent = "Computer: " + computerScore;
+    }
+    
+    if(computerScore > 4) {
+        gameResult.textContent = "Computer Wins!";
+        resultContainer.appendChild(gameResult);
+        scoreReset();
+        playerScore.textContent = "Player: " + humanScore;
+        cpuScore.textContent = "Computer: " + computerScore;
+    }
+
 }
 
 function playGame() {
@@ -113,7 +142,6 @@ function playGame() {
     scissorsBtn.addEventListener("click", function (e) {
         playRound("scissors", getComputerChoice());
     })
-
 }
 
 playGame();
